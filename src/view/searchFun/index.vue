@@ -64,13 +64,13 @@
           </div>
         </div>
         <!-- 课程状态 -->
-        <div
-          class="course-status p-a"
-          v-if="moveStatus != index"
-          :class="{ proceed: item.status=='40' }"
-        >
-          {{ courseStatus[item.status] }}
-        </div>
+        <!--        <div-->
+        <!--          class="course-status p-a"-->
+        <!--          v-if="moveStatus != index"-->
+        <!--          :class="{ proceed: item.status=='40' }"-->
+        <!--        >-->
+        <!--          {{ courseStatus[item.status] }}-->
+        <!--        </div>-->
         <!-- 课程信息 -->
         <div
           class="clss-info p-a"
@@ -127,13 +127,7 @@ export default {
       filtStatus: 0,
       // 鼠标经过
       moveStatus: -1,
-      couresList: [],
-      courseStatus: {
-        10: "待发布",
-        20: "预发布",
-        30: "已发布",
-        40: "关闭"
-      }
+      couresList: []
     };
   },
   created() {
@@ -152,7 +146,7 @@ export default {
       this.moveStatus = -1;
     },
     loadData() {
-      console.log("type===="+this.filtStatus)
+      this.couresList = [];
       switch (this.filtStatus) {
         case 0:
           this.searchCourse();
@@ -186,7 +180,9 @@ export default {
         rnd: new Date().getTime()
       };
       this.$get("cms-web/class/api", param).then((res) => {
-        this.couresList = res.dataList;
+        if (res.dataList != null && res.dataList != undefined) {
+          this.couresList = res.dataList;
+        }
         this.total = parseInt(res.paging.total);
         this.currentPage = parseInt(res.paging.curPage);
       });
@@ -196,7 +192,20 @@ export default {
         leibie: "gongzuofang",
         searchParams: this.searchParams
       }).then((res) => {
-        this.gongzuofangList = res.data.dataList;
+        if (res.data.dataList != null && res.data.dataList != undefined) {
+          var info=[];
+          res.data.dataList.forEach(i => {
+            info.push({
+              courseCover: i.iconPath,
+              className: i.videoName,
+              studyHour: i.seconds,
+              userNum: i.playcount
+            })
+          });
+          this.couresList=info;
+        } else {
+          this.couresList = [];
+        }
         this.total = parseInt(res.data.paging.total);
         this.currentPage = parseInt(res.data.paging.curPage);
       });
@@ -206,7 +215,20 @@ export default {
         leibie: "zonghe",
         searchParams: this.searchParams
       }).then((res) => {
-        this.gongzuofangList = res.data.dataList;
+        if (res.data.dataList != null && res.data.dataList != undefined) {
+          var info=[];
+          res.data.dataList.forEach(i => {
+            info.push({
+              courseCover: i.iconPath,
+              className: i.videoName,
+              studyHour: i.seconds,
+              userNum: i.playcount
+            })
+          });
+          this.couresList=info;
+        } else {
+          this.couresList = [];
+        }
         this.total = parseInt(res.data.paging.total);
         this.currentPage = parseInt(res.data.paging.curPage);
       });
@@ -216,7 +238,20 @@ export default {
         leibie: "zhanjia",
         searchParams: this.searchParams
       }).then((res) => {
-        this.gongzuofangList = res.data.dataList;
+        if (res.data.dataList != null && res.data.dataList != undefined) {
+          var info=[];
+          res.data.dataList.forEach(i => {
+            info.push({
+              courseCover: i.iconPath,
+              className: i.videoName,
+              studyHour: i.seconds,
+              userNum: i.playcount
+            })
+          });
+          this.couresList=info;
+        } else {
+          this.couresList = [];
+        }
         this.total = parseInt(res.data.paging.total);
         this.currentPage = parseInt(res.data.paging.curPage);
       });

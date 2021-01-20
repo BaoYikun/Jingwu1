@@ -39,15 +39,15 @@
       <div class="polaroid f-l p-r" v-for="(item, index) in gongzuofangList" :key="index">
         <img
           class="polaroid-img"
-          :src="item.courseCover"
+          :src="item.iconPath"
           alt="Norway"
           style="width: 100%"
         />
         <div class="w title-box">
-          <p class="c-l-t">{{ item.className }}</p>
+          <p class="c-l-t">{{ item.videoName }}</p>
           <div class="c-l-b">
-            <span class="c-l-time">课程时长：{{ item.studyHour }}分钟</span>
-            <span class="c-l-num">学习人数：{{ item.userNum }}</span>
+            <span class="c-l-time">课程时长：{{ item.seconds }}分钟</span>
+            <span class="c-l-num">学习人数：{{ item.playcount }}</span>
           </div>
         </div>
         <!-- 课程状态 -->
