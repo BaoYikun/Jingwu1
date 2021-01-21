@@ -1,0 +1,166 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.w {
+    width: 100%;
+}
+
+.h {
+    height: 100%;
+}
+
+.bg-f {
+    background-color: #FFFFFF !important;
+}
+
+.b-bg {
+    background-color: #3793fe !important;
+    color: #FFFFFF;
+}
+
+.t-c-f {
+    color: #FFFFFF;
+}
+
+.t-c {
+    color: #8d8d8d;
+}
+
+
+/* 超出隐藏 */
+
+.t-o-e {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.o-hidden {
+    overflow: hidden;
+}
+
+.o-scroll {
+    overflow: scroll;
+}
+
+
+/* 按钮 */
+
+.button {
+    text-align: center;
+    font-size: 34upx;
+    background-color: #3793fe;
+    color: #FFFFFF;
+    width: 570upx;
+    height: 90upx;
+    line-height: 90upx;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* 弹性布局 */
+
+.flex-items {
+    display: flex;
+    align-items: center;
+}
+
+.f-b {
+    justify-content: space-between;
+}
+
+.f-b-c {
+    justify-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.f-g {
+    flex-grow: 1;
+}
+
+.f-s {
+    flex-shrink: 0;
+}
+
+.f-w {
+    flex-wrap: wrap;
+}
+
+.f-size {
+    font-size: 28upx;
+}
+
+.f-s-small {
+    font-size: 22upx;
+}
+
+
+/* 定位 */
+
+.p-r {
+    position: relative;
+}
+
+.p-a {
+    position: absolute;
+}
+
+.b-b {
+    border-bottom: 1px solid #e8e6e6;
+}
+
+
+/* 阴影 */
+
+.b-shadow {
+    box-shadow: 0 6upx 6upx 0 rgba(0, 0, 0, 0.1);
+}
+
+.b-r {
+    border-radius: 100px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-center {
+    position: absolute;
+    top: 50%;
+}
+
+.f-r {
+    float: right;
+}
+
+.f-l {
+    float: left;
+}
+
+.standing-position {
+    height: 72px;
+}
+
+.c-u {
+    cursor: pointer;
+}
+
+.ver-mid {
+    vertical-align: middle;
+}
