@@ -91,6 +91,9 @@ export default {
   methods: {
     loadData() {
       this.$get("bbs/findTopicByType", {type: "hot"}).then((res) => {
+        res.forEach(i=>{
+          this.$common.dateFtt("yyyy-MM-dd HH:mm:ss",i.postTime);
+        });
         this.hotForum = res;
       });
       this.$get("bbs/findTopicByType", {type: "new"}).then((res) => {

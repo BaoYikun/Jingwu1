@@ -24,9 +24,9 @@
           </ul>
         </li>
       </ul>
-      <div class="login-btn p-a vertical-center">
+      <div class="login-btn p-a vertical-center" @click="login">
         <img src="../assets/img/login-button-icon.png" alt=""/>
-        <span @click="login">登陆</span>
+        <span>登陆</span>
       </div>
       <!-- 站位 -->
       <div class="suspend">
@@ -65,9 +65,13 @@ export default {
     return {
       headeList: [],
       activeStatus: 0,
+      avatarUrl:"",
+      roleName:"",
+      userId:""
     };
   },
   created() {
+    this.getLoginInfo();
     this.loadData();
     let url = window.location.href.split('?')[1].split('=')[1];
     this.activeStatus = url;
@@ -99,7 +103,14 @@ export default {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
     login() {
-      window.location.href = "http://www.estudy.nsa/sso/login?tenant_id=1&service=http%3A%2F%2Fwww.estudy.nsa%2F";
+      // window.location.href = "http://www.estudy.nsa/sso/login?tenant_id=1&service=http%3A%2F%2Fwww.estudy.nsa%2F";
+      window.location.href = "http://www.estudy.nsa/study/class";
+    },
+    getLoginInfo(){
+      var userId=this.$common.getUrlKey("ticket",window.location.href);
+      this.$get("cms-web/user/api",{ticket:userId}).then(res=>{
+
+      });
     }
   },
 };
